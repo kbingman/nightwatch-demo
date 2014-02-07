@@ -9,11 +9,12 @@ module.exports = {
 
         return evaluatedData;
       }, [], function(result) {
+        var evaluatedData = result.value;
         browser
-          .assert.equal(result.value.bodySubtype, 'women')
-          .assert.equal('foo', 'foo');
+          .assert.equal(evaluatedData.bodyType, 'home')
+          .assert.equal('foo', 'foo')
+          .saveScreenshot('screenshots/lulu.png');
       })
-      .saveScreenshot('screenshots/lulu.png')
       .end();
   }
 };
