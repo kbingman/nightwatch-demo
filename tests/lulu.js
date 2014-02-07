@@ -3,7 +3,7 @@ module.exports = {
     browser
       .url('http://www.lululemon.com')
       .waitForElementVisible('body', 20000)
-      .waitForElementVisible('#x-root', 30000)
+      .waitForElementVisible('#x-root', 20000)
       .execute(function() {
         var evaluatedData = Mobify.evaluatedData;
 
