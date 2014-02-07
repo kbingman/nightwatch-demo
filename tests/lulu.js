@@ -5,12 +5,15 @@ module.exports = {
       .waitForElementVisible('body', 20000)
       .waitForElementVisible('#x-root', 30000)
       .execute(function() {
-          var evaluatedData = Mobify.evaluatedData;
+        var evaluatedData = Mobify.evaluatedData;
 
-          return evaluatedData;
+        return evaluatedData;
       }, [], function(result) {
-        console.log('result', result.value.bodySubtype)
+        browser
+          .assert.equal(result.value.bodySubtype, 'women')
+          .assert.equal('foo', 'foo');
       })
+      .saveScreenshot('screenshots/lulu.png')
       .end();
   }
 };
