@@ -4,13 +4,11 @@
   "description": "Nightwatch Demo",
   "main": "index.js",
   "scripts": {
-    "test": "./nightwatch -t tests/test.js"
+    "test": "./nightwatch -g tests"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "nightwatch": "git+https://github.com/mobify/nightwatch.git",
-    "yadda": "~0.9.8",
-    "async": "~0.2.10"
   }
 }
