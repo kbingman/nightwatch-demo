@@ -1,9 +1,9 @@
 module.exports = {
   'Demo test Lululemon' : function (browser) {
+
     browser
       .url('http://www.lululemon.com')
-      .waitForElementVisible('body', 20000)
-      .waitForElementVisible('#x-root', 20000)
+      .waitForPageToBeMobified()
       .execute(function() {
         var evaluatedData = Mobify.evaluatedData;
 
@@ -12,9 +12,8 @@ module.exports = {
         var evaluatedData = result.value;
         browser
           .assert.equal(evaluatedData.bodyType, 'home')
-          .assert.equal('foo', 'foo')
-          .saveScreenshot('screenshots/lulu.png');
       })
+      .saveScreenshot('screenshots/lulu_' + new Date().getTime() + '.png')
       .end();
   }
 };
