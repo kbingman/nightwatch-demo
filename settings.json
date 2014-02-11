@@ -1,6 +1,6 @@
 {
   "output_folder" : "examples/reports",
-  "custom_commands_path" : "commands",
+  "custom_commands_path" : "",
 
   "selenium" : {
     "start_process" : false,

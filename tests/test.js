@@ -12,14 +12,14 @@ var English = Yadda.localisation.English;
 var parser = new Yadda.parsers.FeatureParser();
 var library = require('./library').init();
 var yadda = new Yadda.Yadda(library);
-Yadda.plugins.nightwatch(yadda);
+// Yadda.plugins.nightwatch(yadda);
 
 module.exports = (function(){
 
     var features = new Yadda.FeatureFileSearch('features').list();
 
     var steps = features.reduce(function(initial, file){
-        // var feature = parser.parse(fs.readSync(file));
+        var feature = parser.parse(fs.read(file));
 
         // results is now an array of stats for each file
         initial[file] = function (browser) {
