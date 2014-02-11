@@ -1,17 +1,19 @@
 module.exports = {
   'Demo test Lululemon' : function (browser) {
+
     browser
       .url('http://www.lululemon.com')
-      .waitForElementVisible('body', 1000)
-      // .setValue('input[type=text]', 'nightwatch')
-      .waitForElementVisible('#x-root', 10000)
+      .waitForPageToBeMobified()
       .execute(function() {
-        var mobify = window.Mobify;
+        var evaluatedData = Mobify.evaluatedData;
 
-        return false;
+        return evaluatedData;
       }, [], function(result) {
-        console.log(result)
+        var evaluatedData = result.value;
+        browser
+          .assert.equal(evaluatedData.bodyType, 'home')
       })
+      .saveScreenshot('screenshots/lulu_' + new Date().getTime() + '.png')
       .end();
   }
 };
