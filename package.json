@@ -9,6 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nightwatch": "git+https://github.com/mobify/nightwatch.git",
+    "nightwatch": "git+https://github.com/mobify/nightwatch.git"
   }
 }
