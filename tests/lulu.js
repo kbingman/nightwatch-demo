@@ -6,14 +6,11 @@ module.exports = {
       // .setValue('input[type=text]', 'nightwatch')
       .waitForElementVisible('#x-root', 10000)
       .execute(function() {
-        var mobify = window.Mobify
-        if(window.Mobify){
-          alert('hey')
-        }
+        var mobify = window.Mobify;
 
         return false;
       }, [], function(result) {
-        console.log('result', result)
+        console.log(result)
       })
       .end();
   }
