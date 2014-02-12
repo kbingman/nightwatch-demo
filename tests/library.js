@@ -32,7 +32,7 @@ module.exports.init = function() {
         }, [], function(result) {
             var evaluatedData = result.value;
             browser
-              .assert.equal(evaluatedData.bodyType, template);
+              .assert.equal(evaluatedData.bodyType, template, 'template is correct');
         })
     })
 
