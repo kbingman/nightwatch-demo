@@ -3,6 +3,7 @@ var English = Yadda.localisation.English;
 var Dictionary = Yadda.Dictionary;
 
 module.exports.init = function() {
+
     var dictionary = new Dictionary();
         // .define('LOCALE', /(fr|es|ie|de)/)
         // .define('NUM', /(\d+)/);
@@ -10,31 +11,39 @@ module.exports.init = function() {
     var library = English.library()
 
     .when("I open $URL", function(url) {
-        console.log(url);
+        this.browser.url(url)
     })
 
-    .then("the title should be '$TITLE'", function(title) {
-        console.log(title);
+    .then("it should be mobified", function() {
+        // Uses the custom waitForPageToBeMobified command to wait until
+        // the DOM has been successfully mobified
+        this.browser.waitForPageToBeMobified()
     })
 
-    // .then("the $ACTION form exists", function(action) {
-    //     casper.test.assertExists('form[action="/' + action + '"]', 'form is found');
-    // })
+    .then("it should use the $TEMPLATE template", function(template) {
+        // Uses the browser.execute to run code within the client browser,
+        // access the Mobify object and test the template.
+        // We should write a custom command for it.
+        var browser = this.browser;
+        browser.execute(function() {
+            var evaluatedData = Mobify.evaluatedData;
 
-    // .when("I search for $TERM", function(term) {
-    //     casper.fill('form[action="/search"]', { q: term }, true);
-    // })
+            return evaluatedData;
+        }, [], function(result) {
+            var evaluatedData = result.value;
+            browser
+              .assert.equal(evaluatedData.bodyType, template);
+        })
+    })
 
-    // .then("the search for $TERM was made", function(term) {
-    //     var regex = new RegExp('q=' + term)
-    //     casper.test.assertUrlMatch(regex, 'search term has been submitted');
-    // })
+    .then("it should make a screenshot", function() {
+        var filename = 'lulu_' + new Date().getTime() + '.png';
+        this.browser.saveScreenshot('../screenshots/' + filename);
+    })
 
-    // .then("$NUM or more results were returned", function(number) {
-    //     casper.test.assertEval(function(number) {
-    //         return __utils__.findAll('h3.r').length >= number;
-    //     }, 'google search retrieves ' + number + ' or more results', [number]);
-    // });
+    .then("close the browser", function() {
+        this.browser.end();
+    })
 
     return library;
 };
