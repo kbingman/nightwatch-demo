@@ -38,7 +38,7 @@ module.exports.init = function() {
 
     .then("it should make a screenshot", function() {
         var filename = 'lulu_' + new Date().getTime() + '.png';
-        this.browser.saveScreenshot('../screenshots/' + filename);
+        this.browser.saveScreenshot('screenshots/' + filename);
     })
 
     .then("close the browser", function() {
