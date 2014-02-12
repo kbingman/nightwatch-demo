@@ -24,20 +24,11 @@ module.exports.init = function() {
         // Uses the browser.execute to run code within the client browser,
         // access the Mobify object and test the template.
         // We should write a custom command for it.
-        var browser = this.browser;
-        browser.execute(function() {
-            var evaluatedData = Mobify.evaluatedData;
-
-            return evaluatedData;
-        }, [], function(result) {
-            var evaluatedData = result.value;
-            browser
-              .assert.equal(evaluatedData.bodyType, template, 'template is correct');
-        })
+        this.browser.assertMobifyTemplateIs(template);
     })
 
-    .then("it should make a screenshot", function() {
-        var filename = 'lulu_' + new Date().getTime() + '.png';
+    .then("it should make a screenshot titled $TITLE", function(title) {
+        var filename = title + '_' + new Date().getTime() + '.png';
         this.browser.saveScreenshot('screenshots/' + filename);
     })
 
