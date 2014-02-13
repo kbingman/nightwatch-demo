@@ -5,7 +5,7 @@ exports.command = function(template, callback) {
     var self = this;
     var start = new Date().getTime();
 
-    this.waitForCondition('return Mobify.evaluatedData', 1000, function callback(result) {
+    this.waitForCondition('return Mobify.evaluatedData', 1000, 2000, function callback(result) {
         var now = new Date().getTime();
         var msg = "Page was Mobified after " + (now - start) + " milliseconds.";
         self.assertion(true, !!result, false, msg, true);
