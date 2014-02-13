@@ -3,9 +3,9 @@
   "custom_commands_path" : "commands",
 
   "selenium" : {
-    "start_process" : false,
-    "server_path" : "selenium-server-standalone-2.39.0.jar",
-    "log_path" : "log",
+    "start_process" : true,
+    "server_path" : "lib/selenium-server-standalone.jar",
+    "log_path" : "",
     "host" : "127.0.0.1",
     "port" : 4444
   },
@@ -14,6 +14,7 @@
     "default" : {
       "launch_url" : "http://localhost",
       "port"  : 4444,
+      "chrome_driver": "lib/chromedriver",
       "silent": true,
       "screenshots" : {
         "enabled" : false,

@@ -7,7 +7,6 @@ var Yadda = require('../node_modules/yadda');
 var parser = new Yadda.parsers.FeatureParser();
 var library = require('./library').init();
 var yadda = new Yadda.Yadda(library);
-// Yadda.plugins.nightwatch(yadda);
 
 module.exports = (function(){
 

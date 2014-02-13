@@ -12,7 +12,6 @@ Scenario: Pikabu Navigation
     When I click on .m-pikabu-nav-toggle
     then I should see .x-sidebar-wrapper
     then wait 2 seconds
-    and close the browser
 
 Scenario: Lululemon Lightened Up Pullover page
 
