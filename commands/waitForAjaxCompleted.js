@@ -5,7 +5,7 @@ exports.command = function(template, callback) {
     var self = this;
     var start = new Date().getTime();
 
-    this.waitForCondition('return $.active', 1000, function callback(result) {
+    this.waitForCondition('return $.active', 1000, 2000, function callback(result) {
         var now = new Date().getTime();
         var msg = "AJAX call completed after " + (now - self.startTimer) + " milliseconds.";
         self.assertion(true, result.value, 0, msg, true);

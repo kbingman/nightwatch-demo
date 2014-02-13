@@ -4,9 +4,7 @@
 exports.command = function(url, callback) {
     var self = this;
 
-    this
-        .pause(500)
-        .url(url);
+    this.url(url)
 
     return this; // allows the command to be chained.
 };

@@ -28,7 +28,7 @@ module.exports.init = function() {
     // access the Mobify object and test the template.
     //
     .then("it should use the $TEMPLATE template", function(template) {
-        this.browser.assertMobifyTemplateIs(template);
+        this.browser.assertMobifyTemplate(template);
     })
 
     // Waits for the correct element, then test for the text
@@ -58,6 +58,14 @@ module.exports.init = function() {
     //
     .then("wait $SECONDS seconds", function(seconds){
         this.browser.pause(seconds * 1000)
+    })
+
+    .when("I click on $SELECTOR", function(selector){
+        this.browser.click(selector);
+    })
+
+    .then("I should see $SELECTOR", function(selector){
+        this.browser.assert.visible(selector);
     })
 
     return library;

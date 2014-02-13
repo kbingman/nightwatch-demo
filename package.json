@@ -9,8 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "nightwatch": "git+https://github.com/mobify/nightwatch.git",
-    "yadda": "~0.9.8",
-    "async": "~0.2.10"
+    "nightwatch": "git+https://github.com/mobify/nightwatch.git#waitformobify",
+    "yadda": "~0.9.8"
   }
 }

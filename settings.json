@@ -4,7 +4,7 @@
 
   "selenium" : {
     "start_process" : false,
-    "server_path" : "node_modules/nightwatch/bin/selenium-server-standalone-2.39.0.jar",
+    "server_path" : "selenium-server-standalone-2.39.0.jar",
     "log_path" : "log",
     "host" : "127.0.0.1",
     "port" : 4444

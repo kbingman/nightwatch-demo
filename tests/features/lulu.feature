@@ -6,7 +6,13 @@ Scenario: Lululemon home page
     then it should be mobified
     and it should use the home template
     and it should make a screenshot titled home
-    then wait 0.5 seconds
+
+Scenario: Pikabu Navigation
+
+    When I click on .m-pikabu-nav-toggle
+    then I should see .x-sidebar-wrapper
+    then wait 2 seconds
+    and close the browser
 
 Scenario: Lululemon Lightened Up Pullover page
 
@@ -14,5 +20,4 @@ Scenario: Lululemon Lightened Up Pullover page
     then it should be mobified
     and the title should be Lightened Up Pullover
     and it should use the pdp template
-    and it should make a screenshot titled pdp
-    and close the browser
+    then close the browser
