@@ -51,6 +51,10 @@ module.exports.init = function() {
     // Closes the browser
     //
     .then("close the browser", function() {
+        this.browser.closeWindow();
+    })
+
+    .then("end the session", function() {
         this.browser.end();
     })
 

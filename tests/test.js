@@ -24,7 +24,12 @@ module.exports = (function(){
             }
         });
 
-    }, {});
+    });
+
+    // Close the session when done
+    steps['Close Session'] = function(browser){
+        browser.end()
+    }
 
     return steps;
 

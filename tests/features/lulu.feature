@@ -11,7 +11,7 @@ Scenario: Pikabu Navigation
 
     When I click on .m-pikabu-nav-toggle
     then I should see .x-sidebar-wrapper
-    then wait 2 seconds
+    then wait 0.5 seconds
 
 Scenario: Lululemon Lightened Up Pullover page
 
@@ -19,4 +19,3 @@ Scenario: Lululemon Lightened Up Pullover page
     then it should be mobified
     and the title should be Lightened Up Pullover
     and it should use the pdp template
-    then close the browser
